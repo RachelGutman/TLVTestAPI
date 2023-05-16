@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+using TVTestAPI.Models;
 
 namespace TVTestAPI.Controllers
 {
@@ -33,14 +33,5 @@ namespace TVTestAPI.Controllers
             // Return the email and the time it was received
             return Ok(new MyResponse { Email = request.Email, ReceivedAt = currentTime });
         }
-    }
-    public class MyRequest
-    {
-        [Required, RegularExpression("\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.+\\w+([-.]\\w+)*")]
-        public string Email { get; set; }
-    }
-    public class MyResponse : MyRequest
-    {
-        public DateTime ReceivedAt { get; set; }
     }
 }
